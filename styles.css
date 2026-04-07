@@ -26,6 +26,12 @@
       transition: background var(--ease), color var(--ease);
     }
 
+    p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-2);
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -317,7 +323,7 @@
     }
 
     .lead {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: var(--text-2);
       line-height: 1.75;
       font-weight: 300;
@@ -404,7 +410,7 @@
     }
 
     .g-card p {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--text-2);
       line-height: 1.7;
       font-weight: 300;
@@ -936,7 +942,7 @@
     }
 
     .subs-card-body p {
-      font-size: 0.855rem;
+      font-size: 1rem;
       color: var(--text-2);
       line-height: 1.65;
       font-weight: 300;
@@ -1030,7 +1036,7 @@
     }
 
     .subs-card-body p {
-      font-size: .855rem;
+      font-size: 1rem;
       color: var(--text-2);
       line-height: 1.65;
       font-weight: 300;
@@ -2126,7 +2132,7 @@
         }
         .prod-icon svg { width: 24px; height: 24px; }
         .prod-card h3 { font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--text-1); }
-        .prod-card p { font-size: 0.87rem; color: var(--text-2); line-height: 1.65; margin: 0; }
+        .prod-card p { font-size: 1rem; color: var(--text-2); line-height: 1.65; margin: 0; }
         .prod-tag {
           display: inline-block;
           font-size: 0.72rem;
