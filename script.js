@@ -143,7 +143,7 @@ var T = {
     planHostBasicoBtn: 'Elegir Plan B&aacute;sico', planHostProBtn: 'Elegir Plan Profesional', planHostEmpBtn: 'Elegir Plan Empresa',
 
     /* CLOUD SOBERANA/PRIVADA/DEDICADA */
-    cloudEyebrow: 'Cloud Soberana', cloudTitle: 'Cloud <em>Sovereign</em>', 
+    cloudEyebrow: 'Cloud Soberana', cloudTitle: 'Cloud <em>Soberana</em>', 
     cloudDesc: 'Soberanía de datos, seguridad y máximo rendimiento.',
     cloudPrivTitle: 'Nube Privada Empresarial', cloudPrivDesc: 'Infraestructura dedicada diseñada para m&aacute;ximo rendimiento.',
     cloudPriv1T: 'Recursos Dedicados', cloudPriv2T: 'Seguridad de Nivel Empresarial', cloudPriv3T: 'Soporte Especializado',
