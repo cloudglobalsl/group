@@ -885,11 +885,25 @@
                 <input type="email" placeholder="Correo electrónico" class="form-input" data-i18n-placeholder="contEmailPlaceholder" />
               </div>
             </div>
+            <div class="form-group" style="display:none !important">
+              <label class="form-label">Phone Prefix</label>
+              <input type="text" name="honeypot" id="form-honeypot" class="form-input" />
+            </div>
             <div class="form-group">
               <label class="form-label" data-i18n="contMsgLabel">Mensaje</label>
-              <textarea placeholder="Mensaje" class="form-textarea" data-i18n-placeholder="contMsgPlaceholder"></textarea>
+              <textarea placeholder="Mensaje" class="form-textarea" data-i18n-placeholder="contMsgPlaceholder" id="form-message"></textarea>
             </div>
-            <button class="form-submit" data-i18n="contSubmitBtn">
+            <div class="form-group">
+              <label class="form-label" data-i18n="contCaptchaLabel">Seguridad: ¿Cuánto es <span id="captcha-question">...</span>?</label>
+              <div class="form-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M12 8v4M12 16h.01" />
+                </svg>
+                <input type="text" id="form-captcha" placeholder="Resultado" class="form-input" />
+              </div>
+            </div>
+            <button class="form-submit" onclick="submitContactForm()" data-i18n="contSubmitBtn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />

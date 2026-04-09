@@ -8,6 +8,10 @@ var T = {
     navAlquiler: 'Alquiler Tecnológico', navBareMetal: 'Servicios Bare Metal',
     navProductos: 'Productos', navPartners: 'Partners', navDigital: 'Transformación Digital',
     navCloud: 'Cloud Soberana', navContact: 'Contactar',
+    contCaptchaLabel: 'Seguridad: ¿Cuánto es {n1} + {n2}?',
+    contCaptchaError: 'Respuesta de seguridad incorrecta. Inténtelo de nuevo.',
+    contBotError: 'Sistema de bots detectado.',
+    contSuccess: '¡Mensaje enviado con éxito!',
     dropHosting1: 'Hosting Web', dropHosting2: 'Planes de Hosting',
     dropCloud1: 'Cloud', dropCloud2: 'Nube Privada Empresarial',
     modeLight: 'Modo claro', modeDark: 'Modo oscuro',
@@ -174,6 +178,10 @@ var T = {
     navAlquiler: 'Tech Rental', navBareMetal: 'Bare Metal Servers',
     navProductos: 'Products', navPartners: 'Partners', navDigital: 'Digital Transformation',
     navCloud: 'Sovereign Cloud', navContact: 'Contact',
+    contCaptchaLabel: 'Security: What is {n1} + {n2}?',
+    contCaptchaError: 'Incorrect security answer. Please try again.',
+    contBotError: 'Bot system detected.',
+    contSuccess: 'Message sent successfully!',
     dropHosting1: 'Web Hosting', dropHosting2: 'Hosting Plans',
     dropCloud1: 'Cloud', dropCloud2: 'Enterprise Private Cloud',
     modeLight: 'Light Mode', modeDark: 'Dark Mode',
@@ -301,6 +309,10 @@ var T = {
     navAlquiler: 'Location', navBareMetal: 'Serveurs Bare Metal',
     navProductos: 'Produits', navPartners: 'Partenaires', navDigital: 'Digital Transformation',
     navCloud: 'Cloud Souverain', navContact: 'Contacter',
+    contCaptchaLabel: 'Sécurité : Combien font {n1} + {n2} ?',
+    contCaptchaError: 'Réponse de sécurité incorrecte. Veuillez réessayer.',
+    contBotError: 'Système de robot détecté.',
+    contSuccess: 'Message envoyé avec succès !',
     dropHosting1: 'Hébergement Web', dropHosting2: 'Plans d\'Hébergement',
     dropCloud1: 'Cloud', dropCloud2: 'Cloud Privé Entreprise',
     modeLight: 'Mode clair', modeDark: 'Mode sombre',
@@ -464,6 +476,66 @@ function setLang(lang) {
   var dark = document.documentElement.getAttribute('data-theme') === 'dark';
   var themeLbl = document.getElementById('themeLabel');
   if (themeLbl) themeLbl.textContent = dark ? (t.modeDark || 'Modo oscuro') : (t.modeLight || 'Modo claro');
+  
+  // Refrescar captcha si estamos en contacto o para inicializarlo
+  initCaptcha();
+}
+
+var captchaSum = 0;
+
+function initCaptcha() {
+  var n1 = Math.floor(Math.random() * 10) + 1;
+  var n2 = Math.floor(Math.random() * 10) + 1;
+  captchaSum = n1 + n2;
+  var lang = localStorage.getItem('selectedLang') || 'es';
+  var t = T[lang] || T.es;
+  var label = t.contCaptchaLabel || 'Seguridad: ¿Cuánto es {n1} + {n2}?';
+  label = label.replace('{n1}', n1).replace('{n2}', n2);
+  var el = document.getElementById('captcha-question');
+  if (el) el.parentElement.innerHTML = label.replace('?', ' <span id="captcha-question">?</span>').replace(n1 + ' + ' + n2, '<span id="captcha-numbers">' + n1 + ' + ' + n2 + '</span>');
+  // Re-identificar el span si es necesario o simplemente actualizar el texto del contenedor
+  var container = document.querySelector('[data-i18n="contCaptchaLabel"]');
+  if (container) {
+    container.textContent = label;
+  }
+}
+
+function submitContactForm() {
+  var lang = localStorage.getItem('selectedLang') || 'es';
+  var t = T[lang] || T.es;
+  
+  // Honeypot check
+  var honey = document.getElementById('form-honeypot').value;
+  if (honey) {
+    alert(t.contBotError);
+    return;
+  }
+
+  // Captcha check
+  var userAns = parseInt(document.getElementById('form-captcha').value);
+  if (userAns !== captchaSum) {
+    alert(t.contCaptchaError);
+    initCaptcha();
+    return;
+  }
+
+  // Basic validation
+  var name = document.querySelector('[data-i18n-placeholder="contNamePlaceholder"]').value;
+  var email = document.querySelector('[data-i18n-placeholder="contEmailPlaceholder"]').value;
+  var msg = document.getElementById('form-message').value;
+
+  if (!name || !email || !msg) {
+    alert("Por favor, rellene todos los campos.");
+    return;
+  }
+
+  alert(t.contSuccess);
+  // Reset form
+  document.getElementById('form-captcha').value = '';
+  document.getElementById('form-message').value = '';
+  document.querySelector('[data-i18n-placeholder="contNamePlaceholder"]').value = '';
+  document.querySelector('[data-i18n-placeholder="contEmailPlaceholder"]').value = '';
+  initCaptcha();
 }
 
 function navigate(page) {
@@ -476,6 +548,7 @@ function navigate(page) {
   var ham = document.querySelector('.hamburger');
   if (ham) ham.classList.remove('active');
   setActiveNav(page);
+  if (page === 'contacto') initCaptcha();
 }
 
 function setActiveNav(page) {
@@ -533,4 +606,5 @@ window.addEventListener('scroll', function() {
 window.addEventListener('DOMContentLoaded', function() {
   setLang(localStorage.getItem('selectedLang') || 'es');
   setActiveNav('home');
+  initCaptcha();
 });
