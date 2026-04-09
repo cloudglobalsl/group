@@ -8,7 +8,7 @@ var T = {
     navAlquiler: 'Alquiler Tecnológico', navBareMetal: 'Servicios Bare Metal',
     navProductos: 'Productos', navPartners: 'Partners', navDigital: 'Transformación Digital',
     navCloud: 'Cloud Soberana', navContact: 'Contactar',
-    contCaptchaLabel: 'Seguridad: ¿Cuánto es {n1} + {n2}?',
+    contCaptchaVisual: 'Seguridad: Seleccione el icono de la <strong>Nube</strong>',
     contCaptchaError: 'Respuesta de seguridad incorrecta. Inténtelo de nuevo.',
     contBotError: 'Sistema de bots detectado.',
     contSuccess: '¡Mensaje enviado con éxito!',
@@ -178,8 +178,8 @@ var T = {
     navAlquiler: 'Tech Rental', navBareMetal: 'Bare Metal Servers',
     navProductos: 'Products', navPartners: 'Partners', navDigital: 'Digital Transformation',
     navCloud: 'Sovereign Cloud', navContact: 'Contact',
-    contCaptchaLabel: 'Security: What is {n1} + {n2}?',
-    contCaptchaError: 'Incorrect security answer. Please try again.',
+    contCaptchaVisual: 'Security: Select the <strong>Cloud</strong> icon',
+    contCaptchaError: 'Security answer incorrect. Please try again.',
     contBotError: 'Bot system detected.',
     contSuccess: 'Message sent successfully!',
     dropHosting1: 'Web Hosting', dropHosting2: 'Hosting Plans',
@@ -309,7 +309,7 @@ var T = {
     navAlquiler: 'Location', navBareMetal: 'Serveurs Bare Metal',
     navProductos: 'Produits', navPartners: 'Partenaires', navDigital: 'Digital Transformation',
     navCloud: 'Cloud Souverain', navContact: 'Contacter',
-    contCaptchaLabel: 'Sécurité : Combien font {n1} + {n2} ?',
+    contCaptchaVisual: 'Sécurité : Sélectionnez l\'icône de la <strong>Nuage</strong>',
     contCaptchaError: 'Réponse de sécurité incorrecte. Veuillez réessayer.',
     contBotError: 'Système de robot détecté.',
     contSuccess: 'Message envoyé avec succès !',
@@ -616,8 +616,47 @@ window.addEventListener('scroll', function () {
   if (b) b.classList.toggle('visible', window.scrollY > 280);
 });
 
+function animateCounters() {
+  var counters = document.querySelectorAll('.stat-num');
+  var speed = 200;
+
+  counters.forEach(function(counter) {
+    var updateCount = function() {
+      var target = +counter.getAttribute('data-target');
+      var count = +counter.innerText.replace('+', '').replace('%', '').replace('+', '');
+      var inc = target / speed;
+
+      if (count < target) {
+        var nextValue = count + inc;
+        if (nextValue > target) nextValue = target;
+        
+        var suffix = counter.innerText.includes('%') ? '%' : (counter.innerText.includes('+') ? '+' : '');
+        counter.innerText = (suffix === '+' ? '+' : '') + Math.ceil(nextValue) + (suffix === '%' ? '%' : '');
+        setTimeout(updateCount, 1);
+      } else {
+        var suffix = counter.getAttribute('data-target').includes('%') ? '%' : (counter.getAttribute('data-target').includes('+') ? '+' : '');
+        counter.innerText = (suffix === '+' ? '+' : '') + target + (suffix === '%' ? '%' : '');
+      }
+    };
+    updateCount();
+  });
+}
+
+// Observer para disparar animación cuando los stats entran en vista
+var statsObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      animateCounters();
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
 window.addEventListener('DOMContentLoaded', function () {
   setLang(localStorage.getItem('selectedLang') || 'es');
   setActiveNav('home');
   initCaptcha();
+  
+  var statsBand = document.querySelector('.stats-band');
+  if (statsBand) statsObserver.observe(statsBand);
 });

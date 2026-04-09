@@ -1683,6 +1683,49 @@
       border-bottom-color: var(--nav-accent) !important;
     }
 
+    /* WHATSAPP */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 84px;
+      right: 32px;
+      width: 50px;
+      height: 50px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 800;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media(max-width:768px) {
+      .whatsapp-btn {
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+      }
+      #backToTop {
+        bottom: 80px;
+        right: 24px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+
     /* CONTACT */
     .contact-layout {
       display: grid;
