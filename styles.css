@@ -357,22 +357,23 @@
     }
 
     .g-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 2px;
-      height: 0;
-      background: var(--accent);
-      transition: height 0.3s ease;
+      display: none;
     }
 
     .g-card:hover {
       background: var(--surface2);
+      transform: translateY(-10px);
+      box-shadow: 0 22px 48px rgba(10, 95, 214, 0.12), 0 0 0 1px var(--accent);
+      border-color: var(--accent);
     }
 
-    .g-card:hover::before {
-      height: 100%;
+    .g-card:hover .g-card-icon {
+      transform: scale(1.1) translateY(-2px);
+      color: var(--accent);
+    }
+
+    .g-card-icon {
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     .g-card-img {
@@ -545,7 +546,18 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      transition: transform var(--ease), box-shadow var(--ease);
+      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+    }
+
+    .price-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 22px 48px rgba(10, 95, 214, 0.12), 0 0 0 1px var(--accent);
+    }
+
+    .price-card.featured:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 22px 48px rgba(10, 95, 214, 0.25);
     }
 
     .price-card.featured {
@@ -893,8 +905,17 @@
     }
 
     .subs-card:hover {
+      transform: translateY(-10px);
       border-color: var(--accent);
-      box-shadow: 0 8px 32px rgba(26, 95, 212, 0.10);
+      box-shadow: 0 22px 48px rgba(10, 95, 214, 0.12), 0 0 0 1px var(--accent);
+    }
+
+    .subs-card:hover .subs-icon {
+      transform: scale(1.1) translateY(-2px);
+    }
+
+    .subs-icon {
+      transition: transform 0.3s ease;
     }
 
     .subs-card-img {
@@ -1070,8 +1091,17 @@
     }
 
     .daas-card:hover {
+      transform: translateY(-10px);
       border-color: var(--accent);
-      box-shadow: 0 6px 24px rgba(26, 95, 212, .1);
+      box-shadow: 0 22px 48px rgba(10, 95, 214, 0.12), 0 0 0 1px var(--accent);
+    }
+
+    .daas-card:hover .daas-card-icon {
+      transform: scale(1.1) translateY(-2px);
+    }
+
+    .daas-card-icon {
+      transition: transform 0.3s ease;
     }
 
     .daas-card-corp {
@@ -2142,24 +2172,22 @@ html, body {
 }
 
 .prod-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 0;
-  background: var(--accent);
-  transition: height 0.3s ease;
+  display: none;
 }
 
 .prod-card:hover {
   background: var(--surface2);
-  box-shadow: 0 8px 32px rgba(26, 95, 212, 0.10);
-  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(10, 95, 214, 0.12), 0 0 0 1px var(--accent);
+  transform: translateY(-10px);
+  border-color: var(--accent);
 }
 
-.prod-card:hover::before {
-  height: 100%;
+.prod-card:hover .prod-icon {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.prod-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .prod-tag {
