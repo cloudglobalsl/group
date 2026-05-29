@@ -1,0 +1,416 @@
+[
+  {
+    "id": "TC001",
+    "title": "Open the landing page and see the main site sections",
+    "description": "This verifies that a visitor can load the homepage and see the core informational sections that anchor the single-page experience.",
+    "category": "Page Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the landing page content is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the main informational sections are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Jump from the header to the Home section",
+    "description": "This verifies that a visitor can use the header navigation to reach the Home section and view its content.",
+    "category": "Page Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Home section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Home section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Jump from the header to the Subscriptions section",
+    "description": "This verifies that a visitor can use the header navigation to reach the Subscriptions section and view its content.",
+    "category": "Page Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Subscriptions section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Subscriptions section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Jump from the header to the Hosting section",
+    "description": "This verifies that a visitor can use the header navigation to reach the Hosting section and view its content.",
+    "category": "Page Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Hosting section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Hosting section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Jump from the header to the Products section",
+    "description": "This verifies that a visitor can use the header navigation to reach the Products section and view its content.",
+    "category": "Page Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Products section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Products section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Change the site language to English",
+    "description": "This verifies that a visitor can switch the interface from the default language to English and see the visible text update consistently.",
+    "category": "Language Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select English"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interface text is displayed in English"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the visible labels update consistently"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Switch to dark mode and see the page update",
+    "description": "This verifies that a visitor can toggle the site into dark mode and the interface updates without breaking readability or layout.",
+    "category": "Theme Toggling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the theme toggle control"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page appearance changes to dark mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the layout remains readable"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Change the site language to French",
+    "description": "This verifies that a visitor can switch the interface to French and see the visible text update consistently.",
+    "category": "Language Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select French"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interface text is displayed in French"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the visible labels update consistently"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Return to light mode after toggling theme",
+    "description": "This verifies that a visitor can toggle the theme back to the original appearance and the page returns to a consistent light presentation.",
+    "category": "Theme Toggling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the theme toggle control"
+      },
+      {
+        "type": "action",
+        "description": "Click the theme toggle control again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page appearance returns to light mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page layout remains intact"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Move between multiple sections in one visit",
+    "description": "This verifies that a visitor can browse across several sections in one session without losing access to the site navigation.",
+    "category": "Page Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Home section"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Subscriptions section"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Hosting section"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Products section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Products section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the header navigation remains available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Use navigation, language, and theme controls together",
+    "description": "This verifies that a visitor can combine section navigation, language switching, and theme toggling in one session without one control resetting the others.",
+    "category": "Language Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select English"
+      },
+      {
+        "type": "action",
+        "description": "Click the theme toggle control"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Products section"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select French"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected theme remains applied"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interface text is displayed in French"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Switch languages multiple times in one session",
+    "description": "This verifies that a visitor can switch between languages repeatedly and the UI stays coherent after each change.",
+    "category": "Language Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select English"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select French"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select Spanish"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interface text is displayed in Spanish"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the visible labels update consistently"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC013",
+    "title": "Keep theme changes consistent while browsing sections",
+    "description": "This verifies that a visitor can change the theme and continue navigating across sections without the visual mode resetting unexpectedly.",
+    "category": "Theme Toggling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the theme toggle control"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Hosting section"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Products section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected theme remains applied"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the destination section is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC014",
+    "title": "Browse sections after changing the language",
+    "description": "This verifies that translated labels stay consistent while the visitor moves between the core sections after a language change.",
+    "category": "Language Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the language selector"
+      },
+      {
+        "type": "action",
+        "description": "Select French"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Subscriptions section"
+      },
+      {
+        "type": "action",
+        "description": "Click the header navigation link for the Hosting section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the visible section labels remain in French"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the destination section is displayed"
+      }
+    ],
+    "priority": "Medium"
+  }
+]

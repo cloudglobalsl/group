@@ -1,0 +1,49 @@
+version: "2"
+type: frontend
+tech_stack:
+  - HTML
+  - Vanilla CSS
+  - Vanilla JavaScript
+routes:
+  - path: /
+    file: index.html
+    auth_required: false
+    description: Main landing page for GlobalCloudGroup
+features:
+  - name: Page Navigation
+    description: Single-page application navigation between sections like Home, Subscriptions, Hosting, Products, etc.
+    files:
+      - index.html
+      - script.js
+    entry_route: /
+    user_interactions:
+      - Click navigation links in header
+      - View different sections of the page
+    api_calls: []
+    auth_required: false
+  - name: Theme Toggling
+    description: Switch between light and dark themes
+    files:
+      - index.html
+      - script.js
+      - styles.css
+      - colores.css
+    entry_route: /
+    user_interactions:
+      - Click theme toggle pill button
+      - See UI colors change
+    api_calls: []
+    auth_required: false
+  - name: Language Switching
+    description: Switch website language between Spanish, English, and French
+    files:
+      - index.html
+      - script.js
+    entry_route: /
+    user_interactions:
+      - Click language selector
+      - Select a different language
+      - See UI text update
+    api_calls: []
+    auth_required: false
+known_limitations: []

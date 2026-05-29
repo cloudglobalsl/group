@@ -1,0 +1,17 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5502",
+  "executionArgs": {
+    "projectName": "Página CloudGlobal",
+    "projectPath": "c:\\Users\\Suri\\Desktop\\Página CloudGlobal",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-k24WL8d-Llgnz5t5-stn_d-dmIJ9Id57M7l1f1JNUIr2uhsrrWHarPWqV2wtDLDSFCrTmbOJcX6De858cPKEMUGKIrvu0FxjyfbAQbt0OrrrsHH_HHTgQpQ_5Ig0g3hU8-s"
+    }
+  },
+  "serverPort": 53426
+}
